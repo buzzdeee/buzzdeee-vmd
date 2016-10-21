@@ -1,0 +1,15 @@
+{
+  "name": "buzzdeee-vmd",
+  "version": "0.1.0",
+  "author": "Sebastian Reitenbach",
+  "summary": "A Puppet module to manage OpenBSD vmd Hypervisor",
+  "license": "Apache-2.0",
+  "source": "https://github.com/buzzdeee/buzzdeee-vmd.git",
+  "project_page": "https://github.com/buzzdeee/buzzdeee-vmd",
+  "issues_url": "https://github.com/buzzdeee/buzzdeee-vmd/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
