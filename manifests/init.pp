@@ -42,7 +42,14 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class vmd {
+class vmd (
+  $service_ensure = 'running',
+  $service_enable = true,
+) {
 
+  class { 'vmd::service':
+    ensure => $service_ensure,
+    enable => $service_enable,
+  }
 
 }
