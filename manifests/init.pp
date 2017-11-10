@@ -47,9 +47,14 @@ class vmd (
   $service_enable = true,
 ) {
 
+  include vmd::config
+
   class { 'vmd::service':
     ensure => $service_ensure,
     enable => $service_enable,
   }
+
+  vmd::config
+  -> vmd::service
 
 }
