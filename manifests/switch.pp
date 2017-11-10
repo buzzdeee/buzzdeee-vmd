@@ -12,7 +12,7 @@ define vmd::switch (
     owner   => 'root',
     group   => 'wheel',
     mode    => '0644',
-    content => template('vm/switch_instance.conf')
+    content => template('vm/switch_instance.conf.erb')
   }
 
   concat::fragment {

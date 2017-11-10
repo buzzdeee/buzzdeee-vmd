@@ -12,7 +12,7 @@ define vmd::vm (
     owner   => 'root',
     group   => 'wheel',
     mode    => '0644',
-    content => template('vm/vm_instance.conf')
+    content => template('vm/vm_instance.conf.erb')
   }
 
   concat::fragment {
