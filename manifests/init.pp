@@ -54,7 +54,7 @@ class vmd (
     enable => $service_enable,
   }
 
-  vmd::config
-  -> vmd::service
+  Class['vmd::config']
+  -> Class['vmd::service']
 
 }
