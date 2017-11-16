@@ -13,26 +13,27 @@ vm "<%= @title %>" {
   disk <%= @disk %>
 
   <%- if @interfaces -%>
-    <% @interfaces.each do |interface, params| -%>
+    <% @interfaces.each do |interf, params| -%>
   interface {
-    <%- if @params['group'] -%>
-    group <%= @params['group'] %>
-    <%- end -%>
-    <%- if @params['lladdr'] -%>
-    lladdr "<%= @params['lladdr'] %>"
-    <%- end -%>
-    <%- if @params['rdomain'] -%>
-    rdomain <%= @params['rdomain'] %>
-    <%- end -%>
-    <%- if @params['switch'] -%>
-    switch "<%= @params['switch'] %>"
-    <%- end -%>
-    <%- if @params['enable'] -%>
+      <%- if params['group'] -%>
+    group <%= params['group'] %>
+      <%- end -%>
+      <%- if params['lladdr'] -%>
+    lladdr "<%= params['lladdr'] %>"
+      <%- end -%>
+      <%- if params['rdomain'] -%>
+    rdomain <%= params['rdomain'] %>
+      <%- end -%>
+      <%- if params['switch'] -%>
+    switch "<%= params['switch'] %>"
+      <%- end -%>
+      <%- if params['enable'] -%>
     up
-    <%- else -%>
+      <%- else -%>
     down
-    <%- end -%>
+      <%- end -%>
   }
+    <%- end -%>
   <%- end -%>
 
   <%- if @owner -%>
