@@ -13,7 +13,7 @@ vm "<%= @title %>" {
   disk <%= @disk %>
 
   <%- if @interfaces -%>
-    <% @interfaces.each do |if, params| -%>
+    <% @interfaces.each do |interface, params| -%>
   interface {
     <%- if @params['group'] -%>
     group <%= @params['group'] %>
