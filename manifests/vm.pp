@@ -8,14 +8,14 @@ define vmd::vm (
   $interfaces = undef,
 ) {
 
-  file "/etc/vm.d/vm_${title}.conf" {
+  file { "/etc/vm.d/vm_${title}.conf":
     owner   => 'root',
     group   => 'wheel',
     mode    => '0644',
-    content => template('vm/vm_instance.conf.erb')
+    content => template('vmd/vm_instance.conf.erb')
   }
 
-  concat::fragment {
+  concat::fragment { "include_vm_${title}":
     target  => '/etc/vm.conf',
     content => "include /etc/vm.d/vm_${title}.conf",
     order   => '01',
