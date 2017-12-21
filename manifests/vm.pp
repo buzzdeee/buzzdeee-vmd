@@ -8,7 +8,7 @@ define vmd::vm (
   $interfaces = undef,
 ) {
 
-  file "/etc/vm.d/vm_${title}.conf" {
+  file { "/etc/vm.d/vm_${title}.conf":
     owner   => 'root',
     group   => 'wheel',
     mode    => '0644',

@@ -1,6 +1,6 @@
 # This defined type maintains the switches
 define vmd::switch (
-  $interface,
+  $interface     = 'bridge0',
   $enable        = true,
   $group         = undef,
   $locked_lladdr = false,
@@ -8,7 +8,7 @@ define vmd::switch (
   $forwarding    = true,
 ) {
 
-  file "/etc/vm.d/switch_${title}.conf" {
+  file { "/etc/vm.d/switch_${title}.conf":
     owner   => 'root',
     group   => 'wheel',
     mode    => '0644',
