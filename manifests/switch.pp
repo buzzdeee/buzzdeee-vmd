@@ -1,6 +1,6 @@
 # This defined type maintains the switches
 define vmd::switch (
-  $interface,
+  $interface     = "bridge0",
   $enable        = true,
   $group         = undef,
   $locked_lladdr = false,

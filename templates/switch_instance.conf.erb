@@ -1,7 +1,7 @@
 # This file is maintained via Puppet
 
 switch "<%= @title %>" {
-  add <%= @interface %>
+  interface <%= @interface %>
   <%- if @enable -%>
   enable
   <%- else -%>
