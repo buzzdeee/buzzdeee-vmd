@@ -1,6 +1,7 @@
 # This defined type maintains the vms
 define vmd::vm (
   $disk,
+  $disksize   = '20G',
   $enable     = true,
   $memory     = '512M',
   $boot       = undef,
@@ -19,6 +20,18 @@ define vmd::vm (
     target  => '/etc/vm.conf',
     content => "include /etc/vm.d/vm_${title}.conf\n",
     order   => '01',
+  }
+
+  exec { "create_diskimage_for_${title}":
+    command => "/usr/sbin/vmctl create ${disk} -s ${disksize}",
+    creates => $disk,
+    require => File["/etc/vm.d/vm_${title}.conf"],
+  }
+
+  exec { "load_vm_config_${title}":
+    command => "/usr/sbin/vmctl load /etc/vm.d/vm_${title}.conf",
+    require => Exec["create_diskimage_for_${title}"],
+    unless  => "vmctl status ${title} | grep ${title}",
   }
 
 }
