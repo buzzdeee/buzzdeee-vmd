@@ -21,4 +21,9 @@ define vmd::switch (
     order   => '10',
   }
 
+  exec { "load_switch_config_${title}":
+    command   => "/usr/sbin/vmctl load /etc/vm.d/switch_${title}.conf",
+    subscribe => File["/etc/vm.d/switch_${title}.conf"],
+  }
+
 }
