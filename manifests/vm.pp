@@ -29,9 +29,10 @@ define vmd::vm (
   }
 
   exec { "load_vm_config_${title}":
-    command   => "/usr/sbin/vmctl load /etc/vm.d/vm_${title}.conf",
-    subscribe => File["/etc/vm.d/vm_${title}.conf"],
-    require   => Exec["create_diskimage_for_${title}"],
+    command     => "/usr/sbin/vmctl load /etc/vm.d/vm_${title}.conf",
+    refreshonly => true,
+    subscribe   => File["/etc/vm.d/vm_${title}.conf"],
+    require     => Exec["create_diskimage_for_${title}"],
   }
 
 }
