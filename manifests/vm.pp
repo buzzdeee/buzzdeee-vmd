@@ -23,7 +23,7 @@ define vmd::vm (
   }
 
   exec { "create_diskimage_for_${title}":
-    command => "/usr/sbin/vmctl create ${disk} -s ${disksize}",
+    command => "/usr/sbin/vmctl create -s ${disksize} ${disk}",
     creates => $disk,
     require => File["/etc/vm.d/vm_${title}.conf"],
   }
